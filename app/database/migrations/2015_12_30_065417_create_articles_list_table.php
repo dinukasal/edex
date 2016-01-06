@@ -16,7 +16,7 @@ class CreateArticlesListTable extends Migration {
 			$table->increments('id');
 			$table->string('issue');
 			$table->integer('articleNo')->unique();
-			$table->string('articleHeading');
+			$table->string('articleHeading')->nullable();
 			$table->string('author');
 			$table->timestamps();
 			//$table->binary('data');

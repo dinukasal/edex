@@ -7,10 +7,11 @@
 		<div style="margin-left:2%">
 			@foreach($articles as $item)
 				<label>
+					@if($item['articleHeading']!='')
 						<input type="checkbox" id={{ $item['articleNo']}} name={{ $item['articleNo'] }} value="">
-					{{HTML::link('viewarticle/'.$item['issue'].'/'.$item['articleNo'],'ArticleNo:'.$item['articleNo']
-					.' '.$item['articleHeading'].' by '.$item['author']) }}
-
+						{{HTML::link('viewarticle/'.$item['issue'].'/'.$item['articleNo'],'ArticleNo:'.$item['articleNo']
+						.' '.$item['articleHeading'].' by '.$item['author']) }}
+					@endif
 
 				</label>
 				<br/>
