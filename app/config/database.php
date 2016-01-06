@@ -55,9 +55,9 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'test',
-			'username'  => 'root',
-			'password'  => '',
+			'database'  => 'edex',
+			'username'  => 'edex',
+			'password'  => '7NNNrFsS5pA7TGJV',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

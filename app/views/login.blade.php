@@ -8,7 +8,7 @@
           <h3 class="panel-title">Please Login</h3>
         </div>
         <div class="panel-body">
-          <form role="form"  action="/auth" method="post">
+          <form role="form"  action="{{url('auth')}}" method="post">
 
             <div class="form-group">
               <input type="text" name="username" class="form-control input-sm" placeholder="Username">
@@ -21,7 +21,7 @@
             <div class="checkbox">
               <label>
                 <input name="remember" type="checkbox" value="Remember Me"> Remember Me
-                <a href="/forgot" class="pull-right">Forgot Password?</a>
+                <a href="{{url('forgot')}}" class="pull-right">Forgot Password?</a>
               </label>
             </div>
 
@@ -31,7 +31,7 @@
         </div>
       </div>
       <div class="text-center">
-        <a href="/register" >Don't have an account? Register</a>
+        <a href="{{url('register')}}" >Don't have an account? Register</a>
       </div>
     </div>
   </div>

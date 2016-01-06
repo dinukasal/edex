@@ -1,7 +1,7 @@
 @extends('layout.default')
 
 @section('content')
-  {{ Form::open(array('url' => '/submitarticle' , 'enctype'=>"multipart/form-data")) }}
+  {{ Form::open(array('url' => url('submitarticle') , 'enctype'=>"multipart/form-data")) }}
     <div style="margin-left:2%">
       <h3>
       {{ Form::label('Enter the article here', '') }}
@@ -31,7 +31,7 @@
     </div>
   {{ Form::close() }}
 
-  <script src="/ckeditor/ckeditor.js"></script>                
+  <script src="{{asset('ckeditor/ckeditor.js')}}"></script>                
    <script>
       // Replace the <textarea id="editor1"> with a CKEditor
       // instance, using default configuration.

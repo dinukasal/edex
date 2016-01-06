@@ -1,6 +1,6 @@
 {{ HTML::style('css/test.css')}}
 <div class="bs-example" data-example-id="basic-forms" style="position:absolute;top:100px;left:30%;width:500px;height:auto">
-<form method="post" action="/getdata">
+<form method="post" action="{{url('getdata')}}">
   <div class="form-group">
     <label for="">Request</label>
     <input type="text" class="form-control" id="request" name="request" placeholder="request">
