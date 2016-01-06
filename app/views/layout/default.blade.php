@@ -56,13 +56,29 @@
 
         <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
             <ul class="nav menu">
-                <li class="active"><a href="{{url('view')}}"><svg class="glyph stroked clipboard with paper"><use xlink:href="#stroked-clipboard-with-paper"/></svg> View All Magazines</a></li>
-                <li><a href="{{url('addmag')}}"><svg class="glyph stroked notepad "><use xlink:href="#stroked-notepad"/></svg> Add Magazine</a></li>
-                <li><a href="{{url('list')}}"><svg class="glyph stroked cancel"><use xlink:href="#stroked-cancel"/></svg> Delete Magazine</a></li>
-
+                <li @if(Request::url()==url('view')) class="active" @endif>
+                    <a href="{{url('view')}}">
+                        <svg class="glyph stroked clipboard with paper">
+                        <use xlink:href="#stroked-clipboard-with-paper"/>
+                        </svg> View All Magazines
+                    </a>
+                </li>
+                <li @if(Request::url()==url('addmag')) class="active" @endif>
+                    <a href="{{url('addmag')}}">
+                        <svg class="glyph stroked notepad "><use xlink:href="#stroked-notepad"/></svg> Add Magazine
+                    </a>
+                </li>
+                <li @if(Request::url()==url('list')) class="active" @endif>
+                    <a href="{{url('list')}}">
+                        <svg class="glyph stroked cancel"><use xlink:href="#stroked-cancel"/></svg> Delete Magazine
+                    </a>
+                </li>
 
                 <li role="presentation" class="divider"></li>
-                <li><a href="{{url('logout')}}"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Logout</a></li>
+                <li><a href="{{url('logout')}}">
+                        <svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Logout
+                    </a>
+                </li>
             </ul>
 
         </div><!--/.sidebar-->
