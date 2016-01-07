@@ -22,6 +22,6 @@
 			@endif
 		</div>
 	{{ Form::close() }}
-			<button class="btn btn-info" onclick="location.href='/addarticle/{{$issue}}'">Add Article</button>
+			<button class="btn btn-info" onclick="location.href='{{url('/addarticle/'.$issue)}}'">Add Article</button>
 @stop
 

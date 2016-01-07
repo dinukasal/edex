@@ -8,7 +8,7 @@
           <h3 class="panel-title">Please Login</h3>
         </div>
         <div class="panel-body">
-          <form role="form"  action="/auth" method="post">
+          <form role="form"  action="url('/auth')" method="post">
 
             <div class="form-group">
               <input type="email" name="email" class="form-control input-sm" placeholder="Username">

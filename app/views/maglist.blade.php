@@ -3,7 +3,7 @@
 @section('content')
 	<h3  style="margin-left:2%">Magazines List</h3>
 	<br />
-	{{ Form::open(array('url' => 'deletemultiple')) }}
+	{{ Form::open(array('url' => url('deletemultiple'))) }}
 		<div style="margin-left:2%">
 			<?php $counter=0; ?>
 			@foreach($magazines as $item)

@@ -1,7 +1,7 @@
 @extends('layout.default')
 
 @section('content')
-  {{ Form::open(array('url' => '/submitmag' , 'enctype'=>"multipart/form-data")) }}
+  {{ Form::open(array('url' => url('/submitmag') , 'enctype'=>"multipart/form-data")) }}
     <div style="margin-left:2%">
       <h3>
       {{ Form::label('Enter Magazine details', '') }}

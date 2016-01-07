@@ -14,9 +14,9 @@ class CreateMagzTable extends Migration {
 	{
 		Schema::create('magazines',function($table){
 			$table->increments('id');
-			$table->string('issue')->unique();
+			$table->integer('issue')->unique();
 			$table->string('heading');
-			$table->binary('image');
+			$table->string('image')->nullable();
 			$table->date('date');
 			$table->timestamps();
 			//$table->binary('data');

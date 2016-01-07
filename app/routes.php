@@ -74,7 +74,7 @@ Route::get('test',function(){
 
 //Route::get('test/{request}/{issue}/{article}',['uses'=>'TestController@test']);
 
-Route::post('test',['uses'=>'TestController@test']);
+//Route::post('test',['uses'=>'TestController@test']);
 
 Route::post('getdata',['uses'=>'MagazineController@getJsonData']);
 

@@ -1,6 +1,6 @@
 {{ HTML::style('css/test.css')}}
 <div class="bs-example" data-example-id="basic-forms" style="position:absolute;top:100px;left:30%;width:500px;height:auto">
-<form method="post" action="/getdata">
+<form method="post" action="{{url('/getdata')}}" enctype="multipart/form-data">
   <div class="form-group">
     <label for="">Request</label>
     <input type="text" class="form-control" id="request" name="request" placeholder="request">
@@ -13,6 +13,11 @@
     <label for="">Article</label>
     <input type="text" class="form-control" id="article" name="article" placeholder="article">
   </div>
+  <div class="form-group">
+    <label for="image">Image input</label>
+    <input type="file" id="image" name="image">
+    <p class="help-block">Example block-level help text here.</p>
+  </div>
 
 
   <!--div class="form-group">
@@ -22,11 +27,6 @@
   <div class="form-group">
     <label for="exampleInputPassword1">Password</label>
     <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-  </div>
-  <div class="form-group">
-    <label for="exampleInputFile">File input</label>
-    <input type="file" id="exampleInputFile">
-    <p class="help-block">Example block-level help text here.</p>
   </div>
   <div class="checkbox">
     <label>

@@ -18,7 +18,8 @@
 			{{ $article[0]['data']}}
 			</div>
 		</div>
-		<button class="btn btn-info" onclick="location.href='/editarticle/{{$issue}}/{{$articleData[0]['articleNo']}}'">
+		<button class="btn btn-info" onclick="location.href='{{url('/editarticle/'.$issue.'/'.
+													$articleData[0]['articleNo'])}}'">
 			Edit Article</button>
 	@endif
 @stop

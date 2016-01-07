@@ -16,7 +16,7 @@ class CreateArticlesDataTable extends Migration {
 			$table->increments('id');
 			$table->integer('issue');
 			$table->integer('articleNo');
-			$table->binary('image');
+			$table->string('image');
 			$table->binary('data');
 			$table->timestamps();
 		});
