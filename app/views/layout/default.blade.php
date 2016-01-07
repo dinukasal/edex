@@ -78,6 +78,9 @@
 	<script src="/js/jquery-1.11.1.min.js"></script>
 	<script src="/js/bootstrap.min.js"></script>
 	
+	<p style="margin-left:30%;margin-top:50%">
+	 A Project by Old Royalists Professionals' Engineering Association and Consec Technologies
+	</p>
 </body>
 
 </html>
