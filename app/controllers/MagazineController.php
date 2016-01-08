@@ -27,9 +27,9 @@ class MagazineController extends BaseController {
         $status = $magazine->save();
 
         if ($status == true) {
-            return Redirect::away('/addarticle/' . Input::get('issue'));
+            return Redirect::to('addarticle/' . Input::get('issue'));
         } else {
-            return View::make('upload')->with('title', 'Data Not Saved!!')
+            return Redirect::back()->with('title', 'Data Not Saved!!')
                             ->with('issue', Magazine::all()[Magazine::all()->count() - 1]['issue'] + 1);
         }
     }
