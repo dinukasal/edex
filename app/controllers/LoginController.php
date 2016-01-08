@@ -21,14 +21,18 @@ class LoginController extends BaseController {
         if (Auth::attempt(['username' => Input::get('username'),
                     'password' => Input::get('password')])) {
         
-            return View::make('displayMagazines')
-                        ->with('title', 'All Magazines')
-                        ->with('magazines', Magazine::all());
+            return Redirect::to('view');
         } else {
             return Redirect::back()->with('error',"Login is incorrect");
         }
     }
 
+    
+    
+    /**
+     * Logs out a user
+     * @return type
+     */
     public function logout() {
         if(Auth::check()){
             Auth::logout();
