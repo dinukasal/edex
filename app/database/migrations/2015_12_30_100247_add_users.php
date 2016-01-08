@@ -3,6 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+
 class AddUsers extends Migration {
 
 	/**
@@ -14,13 +15,13 @@ class AddUsers extends Migration {
 	{
 		DB::table('login')->insert(array(
 			'username'=>'admin',
-			'password'=>'1234',
+			'password'=>  \Illuminate\Support\Facades\Hash::make('1234'),
 			'created_at'=>date('Y-m-d H:m:s'),
 			'updated_at'=>date('Y-m-d H:m:s')
 			));
 		DB::table('login')->insert(array(
 			'username'=>'demo',
-			'password'=>'1234',
+			'password'=>\Illuminate\Support\Facades\Hash::make('1234'),
 			'created_at'=>date('Y-m-d H:m:s'),
 			'updated_at'=>date('Y-m-d H:m:s')
 			));

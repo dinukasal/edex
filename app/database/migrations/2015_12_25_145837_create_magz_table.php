@@ -19,7 +19,6 @@ class CreateMagzTable extends Migration {
 			$table->string('image')->nullable();
 			$table->date('date');
 			$table->timestamps();
-			//$table->binary('data');
 		});
 	}
 
