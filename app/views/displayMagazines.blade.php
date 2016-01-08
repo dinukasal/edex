@@ -28,7 +28,7 @@
             </li>
             @endforeach
         </ol>
-        $if(!empty($magazines))
+        @if(!empty($magazines))
         {{ $magazines->links()}}
         @endif
     </div>
