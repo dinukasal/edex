@@ -12,5 +12,6 @@
 
 	{{ HTML::script('js/bootstrap.min.js') }}
 
+	<p style="margin-left:30%;margin-top:35%"> A Project by Old Royalists Professionals' Engineering Association and Consec</p>
 </body>
 </html>
