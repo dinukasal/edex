@@ -81,6 +81,10 @@ class ArticleController extends BaseController
     }
 
 
+    /**
+     * Update an article
+     * @return mixed
+     */
     public function updateArticle()
     {
         $article = ArticlesList::find(
@@ -100,7 +104,6 @@ class ArticleController extends BaseController
                 $link = '/Images/magazines/articles/' . Input::get('issue') . '/' . $fileName;
                 Log::info($link);
             }
-
             $article->data = $_POST['data'];
             $status = $article->save();
 
@@ -115,23 +118,37 @@ class ArticleController extends BaseController
         }
     }
 
+
+    /**
+     * Get an individual article in a view
+     * @param $issue
+     * @param $articleno
+     * @return mixed
+     */
     public function getArticle($issue, $articleno)
     {
         return View::make('displayArticle')
             ->with('title', 'Issue ' . $issue)
             ->with('issue', $issue)
-            ->with('article', ArticleData::where('issue', '=', $issue)->where('articleNo', '=', $articleno)->get())
-            ->with('articleData', ArticlesList::where('issue', '=', $issue)->where('articleNo', '=', $articleno)->get());
+            ->with('article', ArticleData::where('issue', '=', $issue)->where('articleNo', '=', $articleno)->first())
+            ->with('articleData', ArticlesList::where('issue', '=', $issue)->where('articleNo', '=', $articleno)->first());
     }
 
+
+    /**
+     * Shows the form to edit an article
+     * @param $issue
+     * @param $articleno
+     * @return mixed
+     */
     public function editArticle($issue, $articleno)
     {
         return View::make('editArticle')
             ->with('title', 'Issue ' . $issue)
             ->with('issue', $issue)
-            ->with('article', ArticleData::where('issue', '=', $issue)->where('articleNo', '=', $articleno)->get())
-            ->with('articleData', ArticlesList::where('issue', '=', $issue)->where('articleNo', '=', $articleno)->get())
-            ->with('articleNo', ArticlesList::where('issue', '=', $issue)->where('articleNo', '=', $articleno)->get()[0]['articleNo']);
+            ->with('article', ArticleData::where('issue', '=', $issue)->where('articleNo', '=', $articleno)->first())
+            ->with('articleData', ArticlesList::where('issue', '=', $issue)->where('articleNo', '=', $articleno)->first())
+            ->with('articleNo', ArticlesList::where('issue', '=', $issue)->where('articleNo', '=', $articleno)->first()->articleNo);
     }
 
     public function lastIssue()
@@ -152,6 +169,12 @@ class ArticleController extends BaseController
         }
     }
 
+
+    /**
+     * Get a list of articles
+     * @param $issue
+     * @return mixed
+     */
     public function listArticles($issue)
     {
         return View::make('articleslist')

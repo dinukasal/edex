@@ -1,11 +1,21 @@
 @extends('layout.default')
 
 @section('content')
-	<h3 style="margin-left:2%"> Deleted Magazines</h3>
-	<br />
-	<p style="margin-left:2%">
-	@foreach($deleted as $item)
-		Deleted Magazine {{ $item}} <br />
-	@endforeach
-	</p>
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">Deleted Magazine</h3>
+        </div>
+        <div class="panel-body">
+            <ul class="list-group">
+                @foreach($deleted as $item)
+                    <li class="list-group-item">
+                        Deleted Magazine {{ $item}}
+                    </li>
+                @endforeach
+
+            </ul>
+        </div>
+    </div>
+
 @stop

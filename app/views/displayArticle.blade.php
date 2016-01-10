@@ -1,25 +1,36 @@
 @extends('layout.default')
 
 @section('content')
-	<h3 style='margin-left:20px'>
-		Issue: {{ $issue}}
 
-	</h3>
-	<br />
-	
-	@if(isset($article))
-		<div class="row" style="margin-left:1%">
-			<div class="col-xs-6 col-md-4 inline lead"><label>Article Name: {{ $articleData[0]['articleHeading']}}</label></div>
-			<div class="col-xs-6 col-md-4 inline lead"><label>Author: {{ $articleData[0]['author']}}</label></div>
-		</div>
-		<div class="row" style="margin-left:1%">
-			<div class="form-control" style="margin-top:20px;height:auto;margin:10px;width:auto">
-			<img src="data:image/jpeg;base64,{{base64_encode($article[0]['image']) }}"/>
-			{{ $article[0]['data']}}
-			</div>
-		</div>
-		<button class="btn btn-info" onclick="location.href='{{url('/editarticle/'.$issue.'/'.
-													$articleData[0]['articleNo'])}}'">
-			Edit Article</button>
-	@endif
+
+    <div class="panel panel-info">
+        <div class="panel panel-heading">
+            <h3 class="panel-title">Issue : {{$issue}}</h3>
+        </div>
+
+        <div class="panel-body center-block">
+            @if(isset($article))
+                <div class="row center-block">
+                    <div class="col-xs-6 col-md-6 inline lead"><label>Article
+                            Name: {{ $articleData['articleHeading']}}</label>
+                    </div>
+                    <div class="col-xs-6 col-md-6 inline lead"><label>Author: {{ $articleData['author']}}</label></div>
+                </div>
+                <div class="row center-block">
+                    <img src="{{asset($article->image)}}" class="img-responsive" style="width: 300px"/>
+                    <p>
+                        {{ $article['data']}}
+                    </p>
+                </div>
+
+            @endif
+        </div>
+
+        <div class="panel-footer container-fluid">
+            <button class="btn btn-info pull-left" onclick="location.href='{{url('/editarticle/'.$issue.'/'.
+													$articleData['articleNo'])}}'">
+                Edit Article
+            </button>
+        </div>
+    </div>
 @stop

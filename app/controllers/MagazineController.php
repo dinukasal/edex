@@ -112,6 +112,11 @@ class MagazineController extends BaseController
         }
     }
 
+
+    /**
+     * List all the magazines
+     * @return mixed
+     */
     public function listMagazines()
     {
         return View::make('maglist')
@@ -119,6 +124,11 @@ class MagazineController extends BaseController
             ->with('magazines', Magazine::all());
     }
 
+
+    /**
+     * Delete multiple magazines
+     * @return mixed
+     */
     public function deleteMultiple()
     {
         $deleted = array();
