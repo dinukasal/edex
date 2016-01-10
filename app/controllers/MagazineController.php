@@ -1,17 +1,19 @@
 <?php
 
-class MagazineController extends BaseController {
+class MagazineController extends BaseController
+{
 
     /**
      * Save the magazine.
      * @return type
      */
-    public function saveMagazine() {
+    public function saveMagazine()
+    {
 
         $link = null;
         if (Input::hasFile('image')) {
             $fileName = Input::get('issue') . '.' . Input::file('image')->getClientOriginalExtension();
-            Input::file('image')->move(public_path().'/Images/magazines/', $fileName);
+            Input::file('image')->move(public_path() . '/Images/magazines/', $fileName);
             $link = '/Images/magazines/' . $fileName;
             Log::info($link);
         } else {
@@ -29,7 +31,7 @@ class MagazineController extends BaseController {
             return Redirect::to('addarticle/' . Input::get('issue'));
         } else {
             return Redirect::back()->with('title', 'Data Not Saved!!')
-                            ->with('issue', Magazine::all()[Magazine::all()->count() - 1]['issue'] + 1);
+                ->with('issue', Magazine::all()[Magazine::all()->count() - 1]['issue'] + 1);
         }
     }
 
@@ -38,10 +40,11 @@ class MagazineController extends BaseController {
      * get all the magazines
      * @return type
      */
-    public function getMagazines() {
+    public function getMagazines()
+    {
         return View::make('displayMagazines')
-                        ->with('title', 'All Magazines')
-                        ->with('magazines', Magazine::paginate(5));
+            ->with('title', 'All Magazines')
+            ->with('magazines', Magazine::paginate(5));
     }
 
 
@@ -50,20 +53,23 @@ class MagazineController extends BaseController {
      * @param type $issue
      * @return type
      */
-    public function getMagazineByIssue($issue) {
+    public function getMagazineByIssue($issue)
+    {
         return View::make('articleslist')
-                        ->with('title', 'Issue ' . $issue)
-                        ->with('heading', Magazine::where('issue', '=', $issue)->first()->heading)
-                        ->with('issue', $issue)
-                        ->with('articles', ArticlesList::where('issue', '=', $issue)->get()
-        );
+            ->with('title', 'Issue ' . $issue)
+            ->with('heading', Magazine::where('issue', '=', $issue)->first()->heading)
+            ->with('issue', $issue)
+            ->with('articles', ArticlesList::where('issue', '=', $issue)->get()
+            );
     }
 
-    public function lastIssue() {
+    public function lastIssue()
+    {
         return DB::table('data')->order_by('issue', 'desc')->first();
     }
 
-    public function deleteArticle($issue, $articleno) {
+    public function deleteArticle($issue, $articleno)
+    {
         $magazine = new Magazine;
         $status = $magazine->where('issue', '=', $issue)->delete();
         if ($status) {
@@ -75,7 +81,8 @@ class MagazineController extends BaseController {
         }
     }
 
-    public function deleteMagazine($issue) {
+    public function deleteMagazine($issue)
+    {
         $magazine = new Magazine;
         $articlesList = new ArticlesList;
         $articleData = new ArticleData;
@@ -93,8 +100,8 @@ class MagazineController extends BaseController {
             }
         }
         return View::make('deletedMagz')
-                        ->with('title', 'Deleted Magazines')
-                        ->with('deleted', $deleted);
+            ->with('title', 'Deleted Magazines')
+            ->with('deleted', $deleted);
 
         if ($status) {
             return '
@@ -105,13 +112,15 @@ class MagazineController extends BaseController {
         }
     }
 
-    public function listMagazines() {
+    public function listMagazines()
+    {
         return View::make('maglist')
-                        ->with('title', 'Magazines List')
-                        ->with('magazines', Magazine::all());
+            ->with('title', 'Magazines List')
+            ->with('magazines', Magazine::all());
     }
 
-    public function deleteMultiple() {
+    public function deleteMultiple()
+    {
         $deleted = array();
         $count = 0;
         foreach ($_POST as $issue => $value) {
@@ -132,8 +141,8 @@ class MagazineController extends BaseController {
             }
         }
         return View::make('deletedMagz')
-                        ->with('title', 'Deleted Magazines')
-                        ->with('deleted', $deleted);
+            ->with('title', 'Deleted Magazines')
+            ->with('deleted', $deleted);
         /*
           return var_dump($_POST);
          */
@@ -144,10 +153,11 @@ class MagazineController extends BaseController {
      * Get the JSON from of the data requested. Magazine, articles or article
      * @return string
      */
-    public function getJsonData() {
+    public function getJsonData()
+    {
         $request = Input::get('request');
-        $issue=Input::get('issue');
-        $articleNo=Input::get('article');
+        $issue = Input::get('issue');
+        $articleNo = Input::get('article');
 
 
         Log::info(Input::all());
@@ -163,12 +173,13 @@ class MagazineController extends BaseController {
 
                 $temp['mag_' . $counter]['issue'] = $item['issue'];
                 $temp['mag_' . $counter]['title'] = $item['heading'];
-                $temp['mag_' . $counter]['image'] = ''.asset($item->image);
+                $temp['mag_' . $counter]['image'] = '' . asset($item->image);
+
                 $temp['mag_' . $counter++]['date'] = $item['date'];
             }
             return json_encode($temp);
         } else if ($request === 'articles') {
-            $articlesList = ArticlesList::where('issue',Input::get('issue'))->get();
+            $articlesList = ArticlesList::where('issue', Input::get('issue'))->get();
             $temp = array();
             $counter = 1;
             foreach ($articlesList as $item) {
@@ -178,26 +189,26 @@ class MagazineController extends BaseController {
                     $temp['article_' . $counter]['issue'] = $item['issue'];
                     $temp['article_' . $counter]['articleNo'] = $item['articleNo'];
                     $temp['article_' . $counter]['title'] = $item['articleHeading'];
-                    $imageLink=ArticleData::where('issue',$item->issue)->where('articleNo',$item->articleNo)->first()->image;
+                    $imageLink = ArticleData::where('issue', $item->issue)->where('articleNo', $item->articleNo)->first()->image;
                     $temp['article_' . $counter]['image'] = asset($imageLink);
                     $temp['article_' . $counter]['lng'] = 'e';
                     $temp['article_' . $counter++]['author'] = $item['author'];
                 } else {
                     $temp = array(
                         'isAdd' => 1,
-                        'addImage' => 'http://dulaj.comuv.com/image1.jpg'
+                        'addImage' => asset($item->image)
                     );
                 }
             }
             return json_encode($temp);
         } else if ($request == 'article') {
 
-            $articlesList = ArticlesList::where('issue',Input::get('issue'))
-                ->where('articleNo',$articleNo)->first();
+            $articlesList = ArticlesList::where('issue', Input::get('issue'))
+                ->where('articleNo', $articleNo)->first();
 
             $articleData = ArticleData::where('issue', $issue)
-                    ->where('articleNo', $articleNo)
-                    ->first();
+                ->where('articleNo', $articleNo)
+                ->first();
             $counter = 0;
             //return $articlesList[$_POST['issue']]['issue'];
             $data = array();
@@ -205,7 +216,7 @@ class MagazineController extends BaseController {
             $data['issue'] = $articlesList->issue;
             $data['articleNo'] = $articleData->articleNo;
             $data['title'] = $articlesList->articleHeading;
-            $data['image'] = ''.asset($articleData->image);
+            $data['image'] = '' . asset($articleData->image);
             $data['author'] = $articlesList->author;
             $data['content'] = $articleData->data;
             $temp['article_' . $counter++]['lng'] = 'e';
@@ -218,7 +229,8 @@ class MagazineController extends BaseController {
 
 }
 
-function uploadImage($issue, $files) {
+function uploadImage($issue, $files)
+{
     File::makeDirectory(url('img/' . $issue));
     /*
       if($status){
