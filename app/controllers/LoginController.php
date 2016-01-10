@@ -37,7 +37,7 @@ class LoginController extends BaseController {
         if(Auth::check()){
             Auth::logout();
         }
-        return Redirect::to('/login');
+        return Redirect::to(url('/login'));
     }
 
 }
