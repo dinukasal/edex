@@ -8,7 +8,6 @@ class MagazineController extends BaseController {
      */
     public function saveMagazine() {
 
-        Log::info(public_path());
         $link = null;
         if (Input::hasFile('image')) {
             $fileName = Input::get('issue') . '.' . Input::file('image')->getClientOriginalExtension();
@@ -140,18 +139,22 @@ class MagazineController extends BaseController {
          */
     }
 
+
+    /**
+     * Get the JSON from of the data requested. Magazine, articles or article
+     * @return string
+     */
     public function getJsonData() {
-        $request = $_POST['request'];
-        if (isset($_POST['issue'])) {
-            $issue = $_POST['issue'];
-        }
+        $request = Input::get('request');
+        $issue=Input::get('issue');
+        $articleNo=Input::get('article');
 
-        if (isset($_POST['articleNo'])) {
-            $articleno = $_POST['articleNo'];
-        }
 
-        //return Magazine::where('issue','=',$issue)->get()->toJson();
-        if ($_POST['request'] == 'magz') {
+        Log::info(Input::all());
+        /**
+         * Returning all the magazines if magazines are requested
+         */
+        if ($request === 'magz') {
             $magazines = Magazine::all();
             $temp = array();
             $counter = 1;
@@ -160,14 +163,12 @@ class MagazineController extends BaseController {
 
                 $temp['mag_' . $counter]['issue'] = $item['issue'];
                 $temp['mag_' . $counter]['title'] = $item['heading'];
-                $temp['mag_' . $counter]['image'] = 'http://dulaj.comuv.com/image1.jpg';
-                //$temp['mag_'.$counter]['img2']='data:image/jpeg;base64'.base64_encode($item['image']);
-                $temp['mag_'.$counter]['img2']=asset($item->image);
+                $temp['mag_' . $counter]['image'] = ''.asset($item->image);
                 $temp['mag_' . $counter++]['date'] = $item['date'];
             }
             return json_encode($temp);
-        } else if ($_POST['request'] == 'articles') {
-            $articlesList = ArticlesList::all();
+        } else if ($request === 'articles') {
+            $articlesList = ArticlesList::where('issue',Input::get('issue'))->get();
             $temp = array();
             $counter = 1;
             foreach ($articlesList as $item) {
@@ -177,7 +178,8 @@ class MagazineController extends BaseController {
                     $temp['article_' . $counter]['issue'] = $item['issue'];
                     $temp['article_' . $counter]['articleNo'] = $item['articleNo'];
                     $temp['article_' . $counter]['title'] = $item['articleHeading'];
-                    $temp['article_' . $counter]['image'] = 'http://dulaj.comuv.com/image1.jpg';
+                    $imageLink=ArticleData::where('issue',$item->issue)->where('articleNo',$item->articleNo)->first()->image;
+                    $temp['article_' . $counter]['image'] = asset($imageLink);
                     $temp['article_' . $counter]['lng'] = 'e';
                     $temp['article_' . $counter++]['author'] = $item['author'];
                 } else {
@@ -188,28 +190,27 @@ class MagazineController extends BaseController {
                 }
             }
             return json_encode($temp);
-        } else if ($_POST['request'] == 'article') {
-            $articlesList = new ArticlesList;
-            $articlesList = $articlesList->where('issue', '=', $_POST['issue'])->get();
-            $articleData = new ArticleData;
-            $articleData = $articleData->where('issue', '=', $_POST['issue'])
-                    ->where('articleNo', '=', $_POST['article'])
-                    ->get();
+        } else if ($request == 'article') {
+
+            $articlesList = ArticlesList::where('issue',Input::get('issue'))
+                ->where('articleNo',$articleNo)->first();
+
+            $articleData = ArticleData::where('issue', $issue)
+                    ->where('articleNo', $articleNo)
+                    ->first();
             $counter = 0;
             //return $articlesList[$_POST['issue']]['issue'];
             $data = array();
 
-            $data['issue'] = $articlesList[$_POST['issue'] - 1]['issue'];
-            $data['articleNo'] = $articleData[0]['articleNo'];
-            $data['title'] = $articlesList[$_POST['issue'] - 1]['articleHeading'];
-            $data['image'] = 'http://dulaj.comuv.com/image1.jpg';
-            $data['author'] = $articlesList[$_POST['issue'] - 1]['author'];
-            $data['content'] = $articleData[0]['data'];
+            $data['issue'] = $articlesList->issue;
+            $data['articleNo'] = $articleData->articleNo;
+            $data['title'] = $articlesList->articleHeading;
+            $data['image'] = ''.asset($articleData->image);
+            $data['author'] = $articlesList->author;
+            $data['content'] = $articleData->data;
             $temp['article_' . $counter++]['lng'] = 'e';
-
             return json_encode($data);
         } else {
-
             $file = uploadImage($_POST['issue'], $_FILES);
             return $file;
         }
