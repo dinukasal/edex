@@ -34,7 +34,7 @@ class MagazineController extends BaseController {
         }
     }
 
-    
+
     /**
      * get all the magazines
      * @return type
@@ -45,7 +45,7 @@ class MagazineController extends BaseController {
                         ->with('magazines', Magazine::paginate(5));
     }
 
-    
+
     /**
      * Get the magazine by issue
      * @param type $issue
@@ -162,9 +162,7 @@ class MagazineController extends BaseController {
                 $temp['mag_' . $counter]['title'] = $item['heading'];
                 $temp['mag_' . $counter]['image'] = 'http://dulaj.comuv.com/image1.jpg';
                 //$temp['mag_'.$counter]['img2']='data:image/jpeg;base64'.base64_encode($item['image']);
-		if(Input::hasFile('/Images/magazines/'.$item['issue'].'.jpg')){
-                    $temp['mag_'.$counter]['img2']=url('/Images/magazines/'.$item['issue'].'.jpg');
-                }
+                $temp['mag_'.$counter]['img2']=asset($item->image);
                 $temp['mag_' . $counter++]['date'] = $item['date'];
             }
             return json_encode($temp);
