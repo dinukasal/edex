@@ -62,7 +62,7 @@ class ArticleController extends BaseController
             $status = $article->save();
 
             if ($status == true) {
-                return Redirect::away('/addarticle/' . Input::get('issue'));
+                return Redirect::to('addarticle/' . Input::get('issue'));
             } else {
                 return Redirect::back()->with('error','Article not saved');
             }
