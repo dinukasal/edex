@@ -34,7 +34,7 @@
                 </div>
                 <div class="row">
                     <label for="image">Cover Page input</label>
-                    {{Form::file('image')}}
+                    <input type="file" name="image" required>
                 </div>    
             </div>
 

@@ -18,6 +18,8 @@ class CreateArticlesListTable extends Migration {
 			$table->integer('articleNo');
 			$table->string('articleHeading')->nullable();
 			$table->string('author');
+			$table->boolean('hasAd')->default(false);
+			$table->string('adImage')->default(null);
 			$table->timestamps();
 			$table->unique(array('issue','articleNo'));
 			//$table->binary('data');

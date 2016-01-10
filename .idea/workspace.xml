@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="281caaa6-b4ac-41bb-8b6a-86e49cc4ee4b" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/ArticleController.php" afterPath="$PROJECT_DIR$/app/controllers/ArticleController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/MagazineController.php" afterPath="$PROJECT_DIR$/app/controllers/MagazineController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/database/migrations/2015_12_30_065417_create_articles_list_table.php" afterPath="$PROJECT_DIR$/app/database/migrations/2015_12_30_065417_create_articles_list_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/uploadArticle.blade.php" afterPath="$PROJECT_DIR$/app/views/uploadArticle.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/uploadMagazine.blade.php" afterPath="$PROJECT_DIR$/app/views/uploadMagazine.blade.php" />
     </list>
     <ignored path="edex.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,8 +43,8 @@
       <file leaf-file-name="ArticleController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/ArticleController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.615385">
-              <caret line="117" column="5" selection-start-line="117" selection-start-column="5" selection-end-line="117" selection-end-column="5" />
+            <state vertical-scroll-proportion="25.0">
+              <caret line="53" column="30" selection-start-line="53" selection-start-column="30" selection-end-line="53" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -49,8 +53,8 @@
       <file leaf-file-name="MagazineController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/MagazineController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.29802513">
-              <caret line="175" column="0" selection-start-line="175" selection-start-column="0" selection-end-line="175" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.6642729">
+              <caret line="218" column="58" selection-start-line="218" selection-start-column="58" selection-end-line="218" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -70,7 +74,7 @@
         <entry file="file://$PROJECT_DIR$/app/storage/logs/laravel.log">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="73" column="18" selection-start-line="73" selection-start-column="18" selection-end-line="73" selection-end-column="18" />
+              <caret line="97" column="15" selection-start-line="97" selection-start-column="15" selection-end-line="97" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -79,18 +83,18 @@
       <file leaf-file-name="uploadArticle.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/uploadArticle.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.9454546">
-              <caret line="16" column="36" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
+            <state vertical-scroll-proportion="-11.436363">
+              <caret line="41" column="46" selection-start-line="41" selection-start-column="46" selection-end-line="41" selection-end-column="46" />
               <folding>
-                <element signature="e#2026#2049#0#HTML" expanded="true" />
-                <marker date="1452425054131" expanded="true" signature="708:875" placeholder="..." />
-                <marker date="1452425054131" expanded="true" signature="730:874" placeholder="..." />
-                <marker date="1452425054131" expanded="true" signature="1019:1195" placeholder="..." />
-                <marker date="1452425054131" expanded="true" signature="1050:1194" placeholder="..." />
-                <marker date="1452425054131" expanded="true" signature="1314:1456" placeholder="..." />
-                <marker date="1452425054131" expanded="true" signature="1335:1455" placeholder="..." />
-                <marker date="1452425054131" expanded="true" signature="1576:1717" placeholder="..." />
-                <marker date="1452425054131" expanded="true" signature="1596:1716" placeholder="..." />
+                <element signature="e#2218#2241#0#HTML" expanded="true" />
+                <marker date="1452428295336" expanded="true" signature="708:875" placeholder="..." />
+                <marker date="1452428295336" expanded="true" signature="730:874" placeholder="..." />
+                <marker date="1452428295336" expanded="true" signature="1019:1195" placeholder="..." />
+                <marker date="1452428295336" expanded="true" signature="1050:1194" placeholder="..." />
+                <marker date="1452428295336" expanded="true" signature="1314:1456" placeholder="..." />
+                <marker date="1452428295336" expanded="true" signature="1335:1455" placeholder="..." />
+                <marker date="1452428295336" expanded="true" signature="1576:1717" placeholder="..." />
+                <marker date="1452428295336" expanded="true" signature="1596:1716" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -99,11 +103,11 @@
       <file leaf-file-name="uploadMagazine.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/uploadMagazine.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.230769">
-              <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+            <state vertical-scroll-proportion="-13.730769">
+              <caret line="36" column="60" selection-start-line="36" selection-start-column="60" selection-end-line="36" selection-end-column="60" />
               <folding>
-                <marker date="1452244622525" expanded="true" signature="701:860" placeholder="..." />
-                <marker date="1452244622525" expanded="true" signature="723:859" placeholder="..." />
+                <marker date="1452429124215" expanded="true" signature="701:860" placeholder="..." />
+                <marker date="1452429124215" expanded="true" signature="723:859" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -118,10 +122,12 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/app/storage/logs/laravel.log" />
-        <option value="$PROJECT_DIR$/app/views/uploadArticle.blade.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/app/views/uploadArticle.blade.php" />
+        <option value="$PROJECT_DIR$/app/database/migrations/2015_12_30_065417_create_articles_list_table.php" />
         <option value="$PROJECT_DIR$/app/controllers/ArticleController.php" />
         <option value="$PROJECT_DIR$/app/controllers/MagazineController.php" />
+        <option value="$PROJECT_DIR$/app/views/uploadMagazine.blade.php" />
       </list>
     </option>
   </component>
@@ -439,14 +445,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_12_30_065417_create_articles_list_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_12_30_070704_create_articles_data_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.518851">
@@ -458,7 +456,7 @@
     <entry file="file://$PROJECT_DIR$/app/storage/logs/laravel.log">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="73" column="18" selection-start-line="73" selection-start-column="18" selection-end-line="73" selection-end-column="18" />
+          <caret line="97" column="15" selection-start-line="97" selection-start-column="15" selection-end-line="97" selection-end-column="15" />
           <folding />
         </state>
       </provider>
@@ -468,35 +466,6 @@
         <state vertical-scroll-proportion="-7.5555553">
           <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/uploadMagazine.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.230769">
-          <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
-          <folding>
-            <marker date="1452244622525" expanded="true" signature="701:860" placeholder="..." />
-            <marker date="1452244622525" expanded="true" signature="723:859" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/uploadArticle.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.9454546">
-          <caret line="16" column="36" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
-          <folding>
-            <element signature="e#2026#2049#0#HTML" expanded="true" />
-            <marker date="1452425054131" expanded="true" signature="708:875" placeholder="..." />
-            <marker date="1452425054131" expanded="true" signature="730:874" placeholder="..." />
-            <marker date="1452425054131" expanded="true" signature="1019:1195" placeholder="..." />
-            <marker date="1452425054131" expanded="true" signature="1050:1194" placeholder="..." />
-            <marker date="1452425054131" expanded="true" signature="1314:1456" placeholder="..." />
-            <marker date="1452425054131" expanded="true" signature="1335:1455" placeholder="..." />
-            <marker date="1452425054131" expanded="true" signature="1576:1717" placeholder="..." />
-            <marker date="1452425054131" expanded="true" signature="1596:1716" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -510,18 +479,55 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/uploadArticle.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.436363">
+          <caret line="41" column="46" selection-start-line="41" selection-start-column="46" selection-end-line="41" selection-end-column="46" />
+          <folding>
+            <element signature="e#2218#2241#0#HTML" expanded="true" />
+            <marker date="1452428295336" expanded="true" signature="708:875" placeholder="..." />
+            <marker date="1452428295336" expanded="true" signature="730:874" placeholder="..." />
+            <marker date="1452428295336" expanded="true" signature="1019:1195" placeholder="..." />
+            <marker date="1452428295336" expanded="true" signature="1050:1194" placeholder="..." />
+            <marker date="1452428295336" expanded="true" signature="1314:1456" placeholder="..." />
+            <marker date="1452428295336" expanded="true" signature="1335:1455" placeholder="..." />
+            <marker date="1452428295336" expanded="true" signature="1576:1717" placeholder="..." />
+            <marker date="1452428295336" expanded="true" signature="1596:1716" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_12_30_065417_create_articles_list_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.61041296">
+          <caret line="21" column="36" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/uploadMagazine.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.730769">
+          <caret line="36" column="60" selection-start-line="36" selection-start-column="60" selection-end-line="36" selection-end-column="60" />
+          <folding>
+            <marker date="1452429124215" expanded="true" signature="701:860" placeholder="..." />
+            <marker date="1452429124215" expanded="true" signature="723:859" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/ArticleController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.615385">
-          <caret line="117" column="5" selection-start-line="117" selection-start-column="5" selection-end-line="117" selection-end-column="5" />
+        <state vertical-scroll-proportion="25.0">
+          <caret line="53" column="30" selection-start-line="53" selection-start-column="30" selection-end-line="53" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/MagazineController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29802513">
-          <caret line="175" column="0" selection-start-line="175" selection-start-column="0" selection-end-line="175" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.6642729">
+          <caret line="218" column="58" selection-start-line="218" selection-start-column="58" selection-end-line="218" selection-end-column="58" />
           <folding />
         </state>
       </provider>

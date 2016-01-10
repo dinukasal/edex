@@ -38,8 +38,12 @@
                 'style'=>'margin-bottom:20px;width:200px;display:inline','required'=>'required')) }}
             </div>
             <div class="form-group">
-                <label for="image">Image input</label>
+                <label for="image">Article Image</label>
                 <input type="file" id="image" name="image" required>
+            </div>
+            <div class="form-group">
+                <label for="adImage">Advertisement (Optional)</label>
+                <input type="file" id="adImage" name="adImage">
             </div>
             <div class="form-group">
                 <textarea name="data" id="data" rows="10" cols="80" style="margin-top:10px" required></textarea>

@@ -40,6 +40,15 @@ class ArticleController extends BaseController
         $article->articleno = Input::get('articleNo');
         $article->articleHeading = Input::get("heading");
         $article->author = Input::get("author");
+
+        //include the advertisement
+        if (Input::hasFile('adImage')) {
+            $fileName = Input::get('issue') . '-' . Input::get('articleNo') . '.' . Input::file('adImage')->getClientOriginalExtension();
+            Input::file('adImage')->move(public_path() . '/Images/magazines/articles/' . Input::get('issue') . '/ads/', $fileName);
+            $adImageLink = '/Images/magazines/articles/' . Input::get('issue') . '/ads/' . $fileName;
+            $article->hasAd = true;
+            $article->adImage = $adImageLink;
+        }
         $status = $article->save();
 
         if ($status == true) {
@@ -50,24 +59,25 @@ class ArticleController extends BaseController
             $link = null;
             if (Input::hasFile('image')) {
                 $fileName = Input::get('issue') . '-' . Input::get('articleNo') . '.' . Input::file('image')->getClientOriginalExtension();
-                Input::file('image')->move(public_path() . '/Images/magazines/articles/'.Input::get('issue').'/', $fileName);
-                $link = '/Images/magazines/articles/'.Input::get('issue').'/' . $fileName;
+                Input::file('image')->move(public_path() . '/Images/magazines/articles/' . Input::get('issue') . '/', $fileName);
+                $link = '/Images/magazines/articles/' . Input::get('issue') . '/' . $fileName;
                 Log::info($link);
             } else {
                 return Redirect::back()->with('error', "Image is required!")->withInput();
             }
 
-            $article->image=$link;
+            $article->image = $link;
             $article->data = $_POST['data'];
             $status = $article->save();
 
             if ($status == true) {
-                return Redirect::to('addarticle/' . Input::get('issue'));
+                return Redirect::to('addarticle/' . Input::get('issue'))
+                    ->with('success', Input::get('articleNo') . ' added successfully!');
             } else {
-                return Redirect::back()->with('error','Article not saved');
+                return Redirect::back()->with('error', 'Article not saved');
             }
         }
-        return Redirect::back()->with('error','Article not saved');
+        return Redirect::back()->with('error', 'Article not saved');
     }
 
 
@@ -86,8 +96,8 @@ class ArticleController extends BaseController
             $link = null;
             if (Input::hasFile('image')) {
                 $fileName = Input::get('issue') . '-' . Input::get('articleNo') . '.' . Input::file('image')->getClientOriginalExtension();
-                Input::file('image')->move(public_path() . '/Images/magazines/articles/'.Input::get('issue').'/', $fileName);
-                $link = '/Images/magazines/articles/'.Input::get('issue').'/' . $fileName;
+                Input::file('image')->move(public_path() . '/Images/magazines/articles/' . Input::get('issue') . '/', $fileName);
+                $link = '/Images/magazines/articles/' . Input::get('issue') . '/' . $fileName;
                 Log::info($link);
             }
 
