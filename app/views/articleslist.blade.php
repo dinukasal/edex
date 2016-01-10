@@ -28,7 +28,7 @@
         <button type="submit" class="btn btn-info pull-left">Delete</button>
         @endif
 
-        <button class="btn btn-info pull-right" onclick="location.href ='{{url('/addarticle/'.$issue)}}'">Add Article</button>
+        <button class="btn btn-info pull-right" onclick="location.href ='{{url('/addarticle/'.$issue)}}';return false;">Add Article</button>
 
     </div>
 
