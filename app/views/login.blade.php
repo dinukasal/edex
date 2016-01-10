@@ -30,8 +30,8 @@
 
                     <div class="checkbox">
                         <label>
-                            <input name="remember" type="checkbox" value="Remember Me"> Remember Me
-                            <!--a href="{{url('forgot')}}" class="pull-right">Forgot Password?</a-->
+                            <!--input name="remember" type="checkbox" value="Remember Me"> Remember Me
+                            <a href="{{url('forgot')}}" class="pull-right">Forgot Password?</a-->
                         </label>
                     </div>
 
