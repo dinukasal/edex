@@ -160,9 +160,9 @@ class MagazineController extends BaseController {
 
                 $temp['mag_' . $counter]['issue'] = $item['issue'];
                 $temp['mag_' . $counter]['title'] = $item['heading'];
-                $temp['mag_' . $counter]['image'] = 'http://dulaj.comuv.com/image1.jpg';
+                //$temp['mag_' . $counter]['image'] = 'http://dulaj.comuv.com/image1.jpg';
                 //$temp['mag_'.$counter]['img2']='data:image/jpeg;base64'.base64_encode($item['image']);
-                $temp['mag_'.$counter]['img2']=asset($item->image);
+                $temp['mag_'.$counter]['image']=asset($item->image);
                 $temp['mag_' . $counter++]['date'] = $item['date'];
             }
             return json_encode($temp);
@@ -177,13 +177,13 @@ class MagazineController extends BaseController {
                     $temp['article_' . $counter]['issue'] = $item['issue'];
                     $temp['article_' . $counter]['articleNo'] = $item['articleNo'];
                     $temp['article_' . $counter]['title'] = $item['articleHeading'];
-                    $temp['article_' . $counter]['image'] = 'http://dulaj.comuv.com/image1.jpg';
+                    $temp['article_' . $counter]['image'] = asset($item->image);
                     $temp['article_' . $counter]['lng'] = 'e';
                     $temp['article_' . $counter++]['author'] = $item['author'];
                 } else {
                     $temp = array(
                         'isAdd' => 1,
-                        'addImage' => 'http://dulaj.comuv.com/image1.jpg'
+                        'addImage' => asset($item->image)
                     );
                 }
             }
@@ -202,7 +202,7 @@ class MagazineController extends BaseController {
             $data['issue'] = $articlesList[$_POST['issue'] - 1]['issue'];
             $data['articleNo'] = $articleData[0]['articleNo'];
             $data['title'] = $articlesList[$_POST['issue'] - 1]['articleHeading'];
-            $data['image'] = 'http://dulaj.comuv.com/image1.jpg';
+            //$data['image'] = asset($item->image);
             $data['author'] = $articlesList[$_POST['issue'] - 1]['author'];
             $data['content'] = $articleData[0]['data'];
             $temp['article_' . $counter++]['lng'] = 'e';
