@@ -31,7 +31,7 @@
                     <div class="checkbox">
                         <label>
                             <input name="remember" type="checkbox" value="Remember Me"> Remember Me
-                            <a href="{{url('forgot')}}" class="pull-right">Forgot Password?</a>
+                            <!--a href="{{url('forgot')}}" class="pull-right">Forgot Password?</a-->
                         </label>
                     </div>
 
@@ -41,7 +41,7 @@
             </div>
         </div>
         <div class="text-center">
-            <a href="/register" >Don't have an account? Register</a>
+            <!--a href="/register" >Don't have an account? Register</a-->
         </div>
     </div>
 </div>
