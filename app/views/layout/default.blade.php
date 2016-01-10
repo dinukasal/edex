@@ -86,7 +86,7 @@ $user = Auth::user();
 
 
                 <li role="presentation" class="divider"></li>
-                <li><a href="/logout"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Logout</a></li>
+                <li><a href="{{url('/logout')}}"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Logout</a></li>
             </ul>
 
         </div><!--/.sidebar-->
