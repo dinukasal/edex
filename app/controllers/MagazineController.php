@@ -204,7 +204,7 @@ class MagazineController extends BaseController
                 $temp['article_' . $counter]['title'] = $item['articleHeading'];
                 $imageLink = ArticleData::where('issue', $item->issue)->where('articleNo', $item->articleNo)->first()->image;
                 $temp['article_' . $counter]['image'] = asset($imageLink);
-                $temp['article_' . $counter]['lng'] = 'e';
+                $temp['article_' . $counter]['lng'] = $articlesList->language;
                 $temp['article_' . $counter++]['author'] = $item['author'];
             }
             return json_encode($temp);
