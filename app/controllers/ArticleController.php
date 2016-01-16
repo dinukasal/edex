@@ -38,6 +38,7 @@ class ArticleController extends BaseController
         $article = new ArticlesList;
         $article->issue = Input::get('issue');
         $article->articleno = Input::get('articleNo');
+        $article->language=Input::get('language');
         $article->articleHeading = Input::get("heading");
         $article->author = Input::get("author");
 

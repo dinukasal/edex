@@ -16,6 +16,7 @@ class CreateArticlesListTable extends Migration {
 			$table->increments('id');
 			$table->integer('issue');
 			$table->integer('articleNo');
+			$table->string('language');
 			$table->string('articleHeading')->nullable();
 			$table->string('author');
 			$table->boolean('hasAd')->default(false);

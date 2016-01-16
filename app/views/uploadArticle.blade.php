@@ -38,9 +38,18 @@
                 'style'=>'margin-bottom:20px;width:200px;display:inline','required'=>'required')) }}
             </div>
             <div class="form-group">
-                <label for="image">Article Image</label>
-                <input type="file" id="image" name="image" required>
+                <div class="col-md-4">
+                    <label for="image">Article Image</label>
+                    <input type="file" id="image" name="image" required="">
+                </div>
+              <div class="col-md-6">
+                    Language
+                  <input type="radio" name="language" value="e" checked>English
+                  <input type="radio" name="language" value="s">Sinhala
+                  <input type="radio" name="language" value="t">Tamil
+                </div>
             </div>
+            <br><br><br>
             <div class="form-group">
                 <label for="adImage">Advertisement (Optional)</label>
                 <input type="file" id="adImage" name="adImage">

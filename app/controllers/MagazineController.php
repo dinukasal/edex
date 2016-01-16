@@ -225,7 +225,7 @@ class MagazineController extends BaseController
             $data['image'] = '' . asset($articleData->image);
             $data['author'] = $articlesList->author;
             $data['content'] = $articleData->data;
-            $data['lng'] = 'e';
+            $data['lng'] = $articlesList->language;
             $data['hasAd'] = $articlesList->hasAd ? 1 : 0;
             $data['adImage'] = $articlesList->hasAd ? $articlesList->adImage : null;
             return json_encode($data);
