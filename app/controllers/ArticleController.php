@@ -90,6 +90,13 @@ class ArticleController extends BaseController
     {
         $article = ArticlesList::find(
             ArticlesList::where('issue', '=', $_POST['issue'])->where('articleNo', '=', $_POST['articleNo'])->get()[0]['id']);
+        if (Input::hasFile('adImage')) {
+            $fileName = Input::get('issue') . '-' . Input::get('articleNo') . '.' . Input::file('adImage')->getClientOriginalExtension();
+            Input::file('adImage')->move(public_path() . '/Images/magazines/articles/' . Input::get('issue') . '/ads/', $fileName);
+            $adImageLink = '/Images/magazines/articles/' . Input::get('issue') . '/ads/' . $fileName;
+            $article->hasAd = true;
+            $article->adImage = $adImageLink;
+        }
         $article->articleHeading = $_POST['heading'];
         $article->author = $_POST['author'];
         $status = $article->save();
