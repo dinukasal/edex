@@ -57,7 +57,7 @@
     </div>
     {{ Form::close() }}
 
-    <script src="/ckeditor/ckeditor.js"></script>
+    <script src="{{asset('ckeditor/ckeditor.js')}}"></script>
     <script>
         // Replace the <textarea id="editor1"> with a CKEditor
         // instance, using default configuration.
