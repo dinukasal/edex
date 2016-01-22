@@ -28,10 +28,26 @@
                 <img src="{{asset($article->image)}}" class="img-responsive center-block" width="200px">
             @endif
         </div>
+
         <div class="form-group">
             <label for="image">Replace Image</label>
             <input type="file" id="image" name="image">
         </div>
+
+        <div class="form-group center-block">
+            <label>Current Advertisement</label>
+            @if(!$articleData->hasAd)
+                <span>No Advertisement Available</span>
+            @else
+                <img src="{{asset($articleData->adImage)}}" class="img-responsive center-block" width="200px">
+            @endif
+        </div>
+
+        <div class="form-group">
+            <label for="image">Replace Advertisement</label>
+            <input type="file" id="advertisement" name="adImage">
+        </div>
+
         <div class="form-group">
             <textarea name="data" id="data" rows="10" cols="80" style="margin-top:10px">{{ $article['data']}}</textarea>
         </div>

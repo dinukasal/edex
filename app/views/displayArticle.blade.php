@@ -22,6 +22,18 @@
                         {{ $article['data']}}
                     </p>
                 </div>
+                <div class="row center-block">
+                    @if($articleData->hasAd)
+                        <p>
+                            <strong>Advertisement</strong>
+                        </p>
+                        <img src="{{asset($articleData->adImage)}}" class="img-responsive" style="width: 300px"/>
+                    @else
+                        <p>
+                            <strong>No Advertisement is available for this article!</strong>
+                        </p>
+                    @endif
+                </div>
 
             @endif
         </div>
