@@ -103,7 +103,7 @@ $user = Auth::user();
         <script src="{{asset('/js/bootstrap.min.js')}}"></script>
 
         <p style="margin-left:30%;margin-top:50%">
-            A Project by Old Royalists Professionals' Engineering Association and Consec Technologies
+            A Project by Old Royalists Professionals' Engineering Association
         </p>
     </body>
 

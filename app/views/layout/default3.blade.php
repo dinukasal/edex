@@ -37,7 +37,7 @@
 	{{ HTML::script('js/bootstrap.min.js') }}
 
 	<p style="margin-left:30%;margin-top:50%"> 
-		A Project by Old Royalists Professionals' Engineering Association and Consec Technologies
+		A Project by Old Royalists Professionals' Engineering Association
 	</p>
 </body>
 
